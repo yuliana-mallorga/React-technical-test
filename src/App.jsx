@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { useCatImage } from "./hooks/useCatImage"
 import { useCatFact } from "./hooks/useCatFact";
+import { Otro } from "./Component/Otro"
 
-const CAT_PREFIX_IMAGE_URL = `https://cataas.com`;
 
 export function App() {
   const { fact, refreshFact } = useCatFact ()
@@ -21,10 +21,13 @@ export function App() {
       {!imageUrl && <div className="lds-dual-ring loading" />}
       {imageUrl && (
         <img
-          src={`${CAT_PREFIX_IMAGE_URL}${imageUrl} `}
+          src={imageUrl}
           alt={`image extracted using the first word for ${fact}`}
         />
       )}
+      <div className="second-section">
+        <Otro/>
+      </div>
     </main>
   );
 }
