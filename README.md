@@ -1,17 +1,13 @@
-# Prueba técnica para Juniors y Trainees de React en Live Coding.
+### **Technical test for Juniors and Trainees in React (Live Coding).**  
 
-APIs:
+**APIs:**  
 
-Facts Random: https://catfact.ninja/fact
+- **Random Fact:** [https://catfact.ninja/fact](https://catfact.ninja/fact)  
+- **Random Image:** [https://cataas.com/cat/says/hello](https://cataas.com/cat/says/hello)  
+- **Endpoint:** `https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true`  
 
-Imagen random: https://cataas.com/cat/says/hello
+### **Instructions:**  
 
--endpoint: `https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true`
-
-Instrucciones:
-
--Recupera un hecho aleatorio de gatos de la primera API.
-
--Recupera las primeras  tres palabras del hecho o curiosidad.
-
--Muestra una imagen de un gato con la primera palabra.
+1. Fetch a random cat fact from the first API.  
+2. Extract the first three words from the fact.  
+3. Display an image of a cat with the first word. 🚀
