@@ -45,4 +45,16 @@ main .loading {
     align-items: center;
 }
 
+.image-container {
+    width: 90%;
+    
+    display: flex;
+    justify-content: center;
+
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
 

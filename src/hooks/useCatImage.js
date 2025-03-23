@@ -1,26 +1,28 @@
 import { useState, useEffect } from 'react';
 
-const CAT_PREFIX_IMAGE_URL = `https://cataas.com`;
-
-export function useCatImage ({ fact }) {
+export function useCatImage({ fact }) {
     const [imageUrl, setImageUrl] = useState();
     useEffect(() => {
-    
-        if (!fact) return;
+      if (!fact) return;
+
+      const fetchCatImage = async () => {
+        try {
+          const threeFirstWords = fact.split(" ", 3).join(" ");
+          const res = await fetch(
+            `https://cataas.com/cat/says/${threeFirstWords}?size=50&color=red&json=true`
+          );
   
-        const threeFirstWord = fact.split(" ", 3).join(" ");
+          if (!res.ok) throw new Error("Error fetching URL");
   
-        fetch(
-          `https://cataas.com/cat/says/${threeFirstWord}?size=50&color=red&json=true`
-        )
-          .then((res) => {
-            if (!res.ok) throw new error("Error fetching url");
-            return res.json();
-          })
-          .then((response) => {
-            const { url } = response;
-            setImageUrl(url);
-          });
+          const response = await res.json();
+          setImageUrl(response.url);
+        } catch (error) {
+          console.error("Error fetching cat image:", error);
+        }
+      };
+  
+      fetchCatImage();
     }, [fact]);
-    return { imageUrl:`${CAT_PREFIX_IMAGE_URL}${imageUrl}` }
-  } //devuelve {imageUrl: 'https://...'}
+
+    return { imageUrl:`${imageUrl}` }
+  } 
