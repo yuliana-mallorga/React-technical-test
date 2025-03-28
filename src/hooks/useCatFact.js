@@ -8,7 +8,6 @@ export function useCatFact () {
       getRandomFact().then((newFact) => setFact(newFact));
     }
   
-     // To retrieve the appointment when loading the page.
      useEffect(refreshFact, []);
     return { fact, refreshFact }
   }
